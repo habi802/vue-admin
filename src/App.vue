@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    ㅎㅇ
+    
 </template>
 
 <style scoped>
