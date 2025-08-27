@@ -6,7 +6,7 @@ const route = useRoute();
 
 const layout = computed(() => {
     if (route.meta.layout === undefined) {
-        return '';
+        return 'none';
     }
 
     return route.meta.layout;
