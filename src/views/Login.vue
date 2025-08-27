@@ -17,7 +17,7 @@ const submit = () => {
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="container">
             <div class="text-center mb-3">
-                <img class="logo" src="@/assets/logo.svg" />
+                <img class="logo" src="@/assets/logo.png" />
             </div>
             <form @sumbit.prevent="submit">
                 <div class="mb-3">
@@ -36,7 +36,16 @@ const submit = () => {
 
 <style scoped>
 .logo {
-    width: 150px;
-    height: 150px;
+    width: 50%;
+    height: 50%;
+}
+
+.btn-primary {
+    background-color: #FF6666;
+    border-color: #E65558;
+
+    &:hover {
+        background-color: #E55558;
+    }
 }
 </style>

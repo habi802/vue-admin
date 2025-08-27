@@ -4,14 +4,14 @@
 
 <template>
     <!-- 햄버거 버튼 (작은 화면에서만) -->
-    <div>
+    <div class="border-bottom">
         <button class="hamburger btn btn-outline-dark d-md-none m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">☰</button>
     </div>
 
     <!-- 사이드바 -->
     <div class="offcanvas-md offcanvas-start d-flex flex-column vh-100 bg-light p-3" tabindex="-1" id="sidebar">
-        <div class="mb-4">
-            <img class="logo" src="@/assets/logo.svg" />
+        <div class="text-center mb-4">
+            <img class="logo" src="@/assets/logo.png" />
         </div>
         <ul class="nav nav-pills flex-column">
             <li class="nav-item"><a href="#" class="nav-link active">대시보드</a></li>
@@ -41,7 +41,7 @@
 }
 
 .logo {
-    width: 75px;
+    width: 165px;
     height: 75px;
 }
 
