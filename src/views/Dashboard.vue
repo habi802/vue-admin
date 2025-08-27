@@ -3,7 +3,9 @@
 </script>
 
 <template>
-    어서 오시게
+    <div class="container">
+        안녕하시오
+    </div>
 </template>
 
 <style scoped>

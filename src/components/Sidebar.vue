@@ -3,13 +3,7 @@
 </script>
 
 <template>
-    <!-- 햄버거 버튼 (작은 화면에서만) -->
-    <div class="border-bottom">
-        <button class="hamburger btn btn-outline-dark d-md-none m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">☰</button>
-    </div>
-
-    <!-- 사이드바 -->
-    <div class="offcanvas-md offcanvas-start d-flex flex-column vh-100 bg-light p-3" tabindex="-1" id="sidebar">
+    <div id="sidebar" class="d-flex flex-column vh-100 bg-light p-3" tabindex="-1">
         <div class="text-center mb-4">
             <img class="logo" src="@/assets/logo.png" />
         </div>
@@ -26,18 +20,8 @@
 </template>
 
 <style scoped>
-.hamburger {
-    border-color: #FF6666;
-    color: #FF6666;
-
-    &:hover {
-        background-color: #FF6666;
-        color: white;
-    }
-}
-
 #sidebar {
-    width: 220px;
+    width: 275px;
 }
 
 .logo {
