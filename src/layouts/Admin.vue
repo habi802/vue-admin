@@ -27,7 +27,7 @@ import Sidebar from '@/components/Sidebar.vue';
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .hamburger {
     border-color: #FF6666;
     color: #FF6666;

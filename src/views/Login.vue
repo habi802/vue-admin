@@ -34,7 +34,7 @@ const submit = () => {
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .logo {
     width: 50%;
     height: 50%;

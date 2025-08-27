@@ -19,7 +19,7 @@
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 #sidebar {
     width: 275px;
 }
