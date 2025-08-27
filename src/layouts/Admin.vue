@@ -13,14 +13,14 @@ import Sidebar from '@/components/Sidebar.vue';
             </button>
         </div>
 
-        <div class="row flex-nowrap">
+        <div class="row flex-nowrap g-0">
             <!-- 사이드바 -->
             <div id="sidebar" class="offcanvas-md offcanvas-start d-md-flex bg-light" tabindex="-1">
                 <Sidebar />
             </div>
             
             <!-- 메인 컨텐츠 -->
-            <main class="col p-3">
+            <main class="col p-3 ms-0">
                 <RouterView />
             </main>
         </div>
