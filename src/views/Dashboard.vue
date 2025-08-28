@@ -1,6 +1,6 @@
 <script setup>
 import StatsCard from '@/components/StatsCard.vue';
-import DashboardTable from '@/components/DashboardTable.vue';
+import DashboardCard from '@/components/DashboardCard.vue';
 
 // 가게 관리, 고객 문의 테이블에 들어갈 값 전달을 위해 임의로 만든 객체
 const stores = {
@@ -27,7 +27,6 @@ const stores = {
         }
     ]
 };
-
 const contacts = {
     name: '고객 문의',
     title: ['글쓴이', '제목', '작성일', '답글'],
@@ -36,7 +35,7 @@ const contacts = {
             0: '김재원',
             1: '가게 등록했는데 활성화해주세요',
             2: '2025-08-27',
-            3: 0
+            3: 1
         },
         {
             0: '이은숙',
@@ -52,6 +51,8 @@ const contacts = {
         },
     ]
 };
+
+// 차트에 들어갈 값 전달을 위해 임의로 만든 객체
 </script>
 
 <template>
@@ -61,16 +62,16 @@ const contacts = {
             <div class="stats col-12">
                 <div class="row">
                     <div class="stats-card-area mb-3">
-                        <StatsCard title="제목1" :count="1000" />
+                        <StatsCard title="이번 달 가입자 수" :count="1000" />
                     </div>
                     <div class="stats-card-area mb-3">
-                        <StatsCard title="제목2" :count="1187" />
+                        <StatsCard title="이번 달 가게 등록 수" :count="1187" />
                     </div>
                     <div class="stats-card-area mb-3">
-                        <StatsCard title="제목3" :count="4222" />
+                        <StatsCard title="이번 달 고객 문의 수" :count="4222" />
                     </div>
                     <div class="stats-card-area mb-3">
-                        <StatsCard title="제목4" :count="876" />
+                        <StatsCard title="이번 달 ㅁㄴㅇㄹ" :count="876" />
                     </div>
                 </div>
             </div>
@@ -91,26 +92,12 @@ const contacts = {
                 <div class="row">
                     <!-- 가게 관리 -->
                     <div class="col-12 col-xl-6 mb-3">
-                        <div class="card">
-                            <div class="card-header">
-                                가게 관리
-                            </div>
-                            <div class="card-body">
-                                <DashboardTable :table="stores" />
-                            </div>
-                        </div>
+                        <DashboardCard title="가게 관리" :table="stores" />
                     </div>
 
                     <!-- 고객 문의 -->
                     <div class="col-12 col-xl-6">
-                        <div class="card">
-                            <div class="card-header">
-                                고객 문의
-                            </div>
-                            <div class="card-body">
-                                <DashboardTable :table="contacts" />
-                            </div>
-                        </div>
+                        <DashboardCard title="고객 문의" :table="contacts" />
                     </div>
                 </div>
             </div>

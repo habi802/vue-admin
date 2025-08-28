@@ -1,6 +1,4 @@
 <script setup>
-import { computed } from 'vue';
-
 const props = defineProps({
     table: Object
 });
@@ -9,7 +7,7 @@ const getStatus = status => {
     if (props.table.name === '가게 관리') {
         return status ? '활성화' : '비활성화';
     } else {
-        return status ? '미등록' : '등록';
+        return status ? '등록' : '미등록';
     }
 };
 </script>
