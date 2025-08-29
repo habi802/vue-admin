@@ -1,6 +1,8 @@
 <script setup>
 import StatsCard from '@/components/StatsCard.vue';
+import ChartCard from '@/components/ChartCard.vue';
 import DashboardCard from '@/components/DashboardCard.vue';
+import { computed, ref } from 'vue';
 
 // 가게 관리, 고객 문의 테이블에 들어갈 값 전달을 위해 임의로 만든 객체
 const stores = {
@@ -52,7 +54,31 @@ const contacts = {
     ]
 };
 
+// 차트 부분 select 관련 변수
+const chartOptions = ['월별 가입자 수', '월별 가게 등록 수', '월별 고객 문의 수'];
+const selectedChartOption = ref(chartOptions[0]);
+
 // 차트에 들어갈 값 전달을 위해 임의로 만든 객체
+const chartData = [
+    {
+        label: ['2025년 6월', '2025년 7월', '2025년 8월'],
+        data: [47, 98, 250],
+    },
+    {
+        label: ['2025년 6월', '2025년 7월', '2025년 8월'],
+        data: [32, 63, 194],
+    },
+    {
+        label: ['2025년 6월', '2025년 7월', '2025년 8월'],
+        data: [78, 185, 302],
+    },
+];
+
+// select 값에 따라 현재 차트 데이터 계산
+const currentChartData = computed(() => {
+    const index = chartOptions.indexOf(selectedChartOption.value);
+    return chartData[index];
+});
 </script>
 
 <template>
@@ -79,9 +105,17 @@ const contacts = {
             <!-- 차트 통계 -->
             <div class="chart col-12">
                 <div class="row">
+                    <div class="col-12 text-end mb-3">
+                        <select class="form-select form-select-sm w-auto d-inline-block" v-model="selectedChartOption">
+                            <option v-for="item in chartOptions" :key="item" :value="item">
+                                {{ item }}
+                            </option>
+                        </select>
+                    </div>
+
                     <div class="col-12 mb-3">
                         <div class="card" style="height: 375px;">
-
+                            <ChartCard :title="selectedChartOption" :chart-data="currentChartData" />
                         </div>
                     </div>
                 </div>
