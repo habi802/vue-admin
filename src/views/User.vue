@@ -1,6 +1,7 @@
 <script setup>
-import VueDatePicker from '@vuepic/vue-datepicker';
 import { reactive } from 'vue';
+import VueDatePicker from '@vuepic/vue-datepicker';
+import DataTable from '@/components/DataTable.vue';
 
 const formatDate = (date) => date.toLocaleDateString();
 
@@ -8,19 +9,47 @@ const today = new Date();
 const lastWeek = new Date();
 lastWeek.setDate(today.getDate() - 7);
 
+const defaultForm = {
+    startDate: lastWeek,
+    endDate: today,
+    loginId: '',
+    name: '',
+    address: '',
+    phone: '',
+    email: '',
+    provider: '01',
+    role: '01'
+}
+
 const state = reactive({
-    form: {
-        startDate: lastWeek,
-        endDate: today,
-        loginId: '',
-        name: '',
+    form: { ...defaultForm }
+});
+
+const resetForm = () => {
+    Object.assign(state.form, defaultForm);
+};
+
+// 테이블에 들어갈 값 전달을 위해 임의로 만든 객체
+const user = [
+    {
+        name: '김장수',
+        loginId: 'user01',
         address: '',
         phone: '',
         email: '',
-        provider: '01',
-        role: '01'
+        provider: '',
+        role: '',
+    },
+    {
+        name: '임택원',
+        loginId: 'user02',
+        address: '',
+        phone: '',
+        email: '',
+        provider: '',
+        role: '',
     }
-});
+];
 </script>
 
 <template>
@@ -77,7 +106,7 @@ const state = reactive({
                 <label class="form-label d-block invisible">버튼</label>
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-secondary w-100">초기화</button>
+                        <button class="btn btn-secondary w-100" @click="resetForm">초기화</button>
                     </div>
                     <div class="col">
                         <button class="btn btn-primary w-100">검색</button>
@@ -86,9 +115,7 @@ const state = reactive({
             </div>
 
             <div class="col-12">
-                <table>
-                    
-                </table>
+                <DataTable :data="user" />
             </div>
         </div>
     </div>
