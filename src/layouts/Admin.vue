@@ -1,16 +1,19 @@
 <script setup>
+import LogoutButton from '@/components/LogoutButton.vue';
 import Sidebar from '@/components/Sidebar.vue';
+import Header from '@/components/Header.vue';
 </script>
 
 <template>
     <div class="container-fluid p-0">
-        <!-- 햄버거 버튼 (작은 화면에서만) -->
-        <div class="border-bottom">
-            <button class="hamburger btn d-md-none m-2" type="button"
+        <!-- 햄버거 버튼, 로그아웃 버튼 (작은 화면에서만 보임) -->
+        <div class="border-bottom d-md-none d-flex justify-content-between align-items-center px-3">
+            <button class="hamburger btn m-2" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#sidebar"
                     aria-controls="sidebar">
                 ☰
             </button>
+            <LogoutButton />
         </div>
 
         <div class="row flex-nowrap g-0">
@@ -19,10 +22,16 @@ import Sidebar from '@/components/Sidebar.vue';
                 <Sidebar />
             </div>
             
-            <!-- 메인 컨텐츠 -->
-            <main class="col p-3 ms-0">
-                <RouterView />
-            </main>
+            <!-- 헤더(큰 화면에서만 보임), 메인 컨텐츠 -->
+            <div class="col">
+                <header class="border-bottom d-none header-block">
+                    <Header />
+                </header>
+
+                <main class="col py-3 ms-0">
+                    <RouterView />
+                </main>
+            </div>
         </div>
     </div>
 </template>
@@ -35,6 +44,12 @@ import Sidebar from '@/components/Sidebar.vue';
     &:hover {
         background-color: #FF6666;
         color: white;
+    }
+}
+
+.header-block {
+    @media (min-width: 768px) {
+        display: block !important;
     }
 }
 
