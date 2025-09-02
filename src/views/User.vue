@@ -1,7 +1,7 @@
 <script setup>
 import { reactive } from 'vue';
 import VueDatePicker from '@vuepic/vue-datepicker';
-import DataTable from '@/components/DataTable.vue';
+import DateTable from '@/components/DataTable.vue';
 
 const formatDate = (date) => date.toLocaleDateString();
 
@@ -32,23 +32,41 @@ const resetForm = () => {
 // 테이블에 들어갈 값 전달을 위해 임의로 만든 객체
 const user = [
     {
+        name: '민병관',
+        loginId: 'user01',
+        address: '13630, 경기 성남시 분당구 돌마로 46, 광천프라자 5층 503호',
+        phone: '010-1204-4506',
+        email: 'people@gmail.com',
+        providerType: '01',
+        role: '01',
+    },
+    {
         name: '김장수',
         loginId: 'user01',
-        address: '',
-        phone: '',
-        email: '',
-        provider: '',
-        role: '',
+        address: '46757, 부산광역시 강서구 녹산산단382로14번가길 13번지 (송정동)',
+        phone: '010-5896-9383',
+        email: 'longlife@naver.com',
+        providerType: '03',
+        role: '02',
     },
     {
         name: '임택원',
         loginId: 'user02',
-        address: '',
-        phone: '',
-        email: '',
-        provider: '',
-        role: '',
+        address: '41937, 대구 중구 중앙대로 394, 제일빌딩 5층',
+        phone: '010-5959-3939',
+        email: 'chooseone@daum.net',
+        providerType: '02',
+        role: '03',
     }
+];
+const fields = [
+    { key: 'name', label: '이름' },
+    { key: 'loginId', label: '아이디' },
+    { key: 'address', label: '주소' },
+    { key: 'phone', label: '전화번호' },
+    { key: 'email', label: '이메일' },
+    { key: 'providerType', label: '가입 유형' },
+    { key: 'role', label: '분류' },
 ];
 </script>
 
@@ -96,10 +114,11 @@ const user = [
                 </BFormSelect>
             </div>
             <div class="col-6 col-xl-4 col-xxl-3 mb-2">
-                <label for="role" class="form-label">회원 분류</label>
+                <label for="role" class="form-label">분류</label>
                 <BFormSelect id="role" v-model="state.form.role">
-                    <option value="01">손님</option>
+                    <option value="01">고객</option>
                     <option value="02">사장</option>
+                    <option value="03">배달원</option>
                 </BFormSelect>
             </div>
             <div class="col-6 col-xl-4 col-xxl-3 ms-xxl-auto mb-2">
@@ -115,7 +134,7 @@ const user = [
             </div>
 
             <div class="col-12">
-                <DataTable :data="user" />
+                <DateTable title="user" :data="user" :field="fields" />
             </div>
         </div>
     </div>
