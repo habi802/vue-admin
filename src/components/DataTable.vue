@@ -15,7 +15,7 @@ const checkboxField = { key: 'selected', label: '', sortable: false }
 
 // title 에 따라 최종 fields 결정
 const computedFields = computed(() => {
-    if (props.title === 'user') {
+    if (props.title !== 'user') {
         return [checkboxField, ...props.field]
     }
     return props.field

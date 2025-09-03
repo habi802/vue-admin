@@ -4,6 +4,7 @@ import EmptyLayout from '@/layouts/Empty.vue'
 import Login from '@/views/Login.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import User from '@/views/User.vue'
+import Store from '@/views/Store.vue'
 import Review from '@/views/Review.vue'
 
 const router = createRouter({
@@ -25,6 +26,12 @@ const router = createRouter({
       path: "/user",
       name: "user",
       component: User,
+      meta: { layout: AdminLayout }
+    },
+    {
+      path: "/store",
+      name: "store",
+      component: Store,
       meta: { layout: AdminLayout }
     },
     {
