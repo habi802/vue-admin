@@ -5,7 +5,7 @@ const route = useRoute();
 </script>
 
 <template>
-    <div id="sidebar" class="d-flex flex-column vh-100 bg-light p-3" tabindex="-1">
+    <div id="sidebar" class="d-flex flex-column vh-100 bg-light p-3">
         <div class="text-center mb-4">
             <img class="logo" src="@/assets/logo.png" />
         </div>
