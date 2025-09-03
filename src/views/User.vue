@@ -39,6 +39,7 @@ const user = [
         email: 'people@gmail.com',
         providerType: '01',
         role: '01',
+        createdAt: '2025-08-13'
     },
     {
         name: '김장수',
@@ -48,6 +49,7 @@ const user = [
         email: 'longlife@naver.com',
         providerType: '03',
         role: '02',
+        createdAt: '2025-08-29'
     },
     {
         name: '임택원',
@@ -57,6 +59,7 @@ const user = [
         email: 'chooseone@daum.net',
         providerType: '02',
         role: '03',
+        createdAt: '2025-09-01'
     }
 ];
 const fields = [
@@ -67,6 +70,7 @@ const fields = [
     { key: 'email', label: '이메일' },
     { key: 'providerType', label: '가입 유형' },
     { key: 'role', label: '분류' },
+    { key: 'createdAt', label: '가입일' },
 ];
 </script>
 
@@ -80,6 +84,7 @@ const fields = [
                     <div class="col">
                         <VueDatePicker :enable-time-picker="false" :format="formatDate" v-model="state.form.startDate" />
                     </div>
+                    ~
                     <div class="col">
                         <VueDatePicker :enable-time-picker="false" :format="formatDate" v-model="state.form.endDate" />
                     </div>

@@ -64,6 +64,12 @@ watch(
             <span v-else-if="row.item.role === '02'" class="badge bg-owner">사장</span>
             <span v-else-if="row.item.role === '03'" class="badge bg-primary">배달원</span>
         </template>
+
+        <!-- 가게 활성화 여부 컬럼 커스텀 -->
+        <template #cell(isActive)="row">
+            <span v-if="row.item.isActive === 0" class="badge bg-danger">비활성화</span>
+            <span v-else-if="row.item.isActive === 1" class="badge bg-primary">활성화</span>
+        </template>
     </BTable>
 </template>
 
@@ -84,8 +90,4 @@ watch(
     background-color: #0100FF;
     color: white;
 }
-
-/* 가게 활성화 여부 스타일 */
-
-/* 가게 영업 여부 스타일 */
 </style>
