@@ -7,7 +7,7 @@ import Header from '@/components/Header.vue';
 <template>
     <div class="container-fluid p-0">
         <!-- 햄버거 버튼, 로그아웃 버튼 (작은 화면에서만 보임) -->
-        <div class="border-bottom d-md-none d-flex justify-content-between align-items-center px-3">
+        <div class="border-bottom d-md-none sticky-top bg-white d-flex justify-content-between align-items-center px-3">
             <button class="hamburger btn m-2" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#sidebar"
                     aria-controls="sidebar">
@@ -24,7 +24,7 @@ import Header from '@/components/Header.vue';
             
             <!-- 헤더(큰 화면에서만 보임), 메인 컨텐츠 -->
             <div class="col">
-                <header class="border-bottom d-none header-block">
+                <header class="border-bottom sticky-top bg-white d-none header-block">
                     <Header />
                 </header>
 
