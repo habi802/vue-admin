@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <b-card class="border-0">
+    <b-card class="border-0" body-class="pt-0">
         <b-row>
             <b-col cols="3"><strong>작성일</strong></b-col>
             <b-col cols="3">2025-09-01</b-col>

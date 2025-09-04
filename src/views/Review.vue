@@ -60,7 +60,7 @@ const fields = [
     { key: 'storeName', label: '상호명' },
     { key: 'customerName', label: '작성자' },
     { key: 'comment', label: '내용' },
-    { key: 'ownerComment', label: '사장 답글' },
+    { key: 'ownerComment', label: '사장 답변' },
     { key: 'createdAt', label: '작성일' },
     { key: 'isHide', label: '상태' },
 ];
@@ -97,7 +97,7 @@ const fields = [
                         <b-form-input type="text" id="loginId" v-model="state.form.comment"></b-form-input>
                     </b-col>
                     <b-col cols="6" xl="4" xxl="3" class="mb-2">
-                        <label for="provider" class="form-label">사장 답글</label>
+                        <label for="provider" class="form-label">사장 답변</label>
                         <b-form-select id="provider" v-model="state.form.ownerComment">
                             <option value="0">미등록</option>
                             <option value="1">등록</option>
@@ -124,7 +124,7 @@ const fields = [
                 </b-row>
             </b-col>
             <b-col cols="12">
-                <b-row class="align-items-center">
+                <b-row>
                     <b-col cols="12" lg="6">
                         <DateTable title="review" :data="review" :field="fields" />
                     </b-col>

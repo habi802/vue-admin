@@ -71,7 +71,7 @@ watch(
             <span v-else-if="row.item.isActive === 1" class="badge bg-primary">활성화</span>
         </template>
 
-        <!-- 사장 답글 등록 여부 컬럼 커스텀 -->
+        <!-- 사장 답변 등록 여부 컬럼 커스텀 -->
         <template #cell(ownerComment)="row">
             <span v-if="row.item.ownerComment === 0" class="badge bg-danger">미등록</span>
             <span v-else-if="row.item.ownerComment === 1" class="badge bg-primary">등록</span>
@@ -81,6 +81,12 @@ watch(
         <template #cell(isHide)="row">
             <span v-if="row.item.isHide === 0" class="badge bg-success">공개</span>
             <span v-else-if="row.item.isHide === 1" class="badge bg-dark">숨김</span>
+        </template>
+
+        <!-- 관리자 답변 등록 여부 컬럼 커스텀 -->
+        <template #cell(managerComment)="row">
+            <span v-if="row.item.managerComment === 0" class="badge bg-danger">미등록</span>
+            <span v-else-if="row.item.managerComment === 1" class="badge bg-primary">등록</span>
         </template>
     </b-table>
 </template>
