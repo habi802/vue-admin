@@ -127,7 +127,7 @@ const fields = [
                     <option value="03">배달원</option>
                 </b-form-select>
             </b-col>
-            <b-col cols="6" xl="4" xxl="3" class="ms-auto mb-2">
+            <b-col cols="6" xl="4" xxl="3" class="ms-auto mb-3">
                 <label class="form-label d-block invisible">버튼</label>
                 <b-row>
                     <b-col>
@@ -137,6 +137,14 @@ const fields = [
                         <button class="btn btn-primary w-100">검색</button>
                     </b-col>
                 </b-row>
+            </b-col>
+
+            <b-col cols="12" class="text-end mb-2">
+                <select class="form-select form-select-sm w-auto d-inline-block">
+                    <option v-for="item in chartOptions" :key="item" :value="item">
+                        {{ item }}
+                    </option>
+                </select>
             </b-col>
 
             <b-col cols="12">

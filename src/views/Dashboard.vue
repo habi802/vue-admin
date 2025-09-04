@@ -106,11 +106,7 @@ const currentChartData = computed(() => {
             <b-col cols="12" class="chart">
                 <b-row>
                     <b-col cols="12" class="text-end mb-3">
-                        <select class="form-select form-select-sm w-auto d-inline-block" v-model="selectedChartOption">
-                            <option v-for="item in chartOptions" :key="item" :value="item">
-                                {{ item }}
-                            </option>
-                        </select>
+                        <b-form-select size="sm" class="w-auto d-inline-block" :options="chartOptions" v-model="selectedChartOption"></b-form-select>
                     </b-col>
 
                     <b-col cols="12" class="text-end mb-3">
@@ -126,12 +122,12 @@ const currentChartData = computed(() => {
                 <b-row>
                     <!-- 가게 관리 -->
                     <b-col cols="12" xl="6" class="mb-3">
-                        <DashboardCard title="가게 관리" :table="stores" />
+                        <DashboardCard title="가게 관리" board="store" :table="stores" />
                     </b-col>
 
                     <!-- 고객 문의 -->
                     <b-col cols="12" xl="6" class="mb-3">
-                        <DashboardCard title="고객 문의" :table="contacts" />
+                        <DashboardCard title="고객 문의" board="contact" :table="contacts" />
                     </b-col>
                 </b-row>
             </b-col>
