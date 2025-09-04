@@ -16,7 +16,8 @@ const defaultForm = {
     storeName: '',
     customerName: '',
     comment: '',
-    ownerComment: 0
+    ownerComment: 0,
+    isHide: 0
 }
 
 const state = reactive({
@@ -57,76 +58,83 @@ const review = [
 ];
 const fields = [
     { key: 'storeName', label: '상호명' },
-    { key: 'customerName', label: '고객명' },
+    { key: 'customerName', label: '작성자' },
     { key: 'comment', label: '내용' },
     { key: 'ownerComment', label: '사장 답글' },
-    { key: 'createdAt', label: '등록일' },
+    { key: 'createdAt', label: '작성일' },
     { key: 'isHide', label: '상태' },
 ];
 </script>
 
 <template>
-    <div class="container">
+    <b-container>
         <h5>리뷰 리스트</h5>
-        <div class="row align-items-center">
-            <div class="col-12">
-                <div class="row align-items-center">
-                    <div class="col-12 col-lg-6 col-xl-4 col-xxl-3 mb-2">
-                        <label for="" class="form-label">등록일</label>
-                        <div class="row align-items-center">
-                            <div class="col">
+        <b-row class="align-items-center">
+            <b-col cols="12">
+                <b-row class="align-items-center">
+                    <b-col cols="12" lg="6" xl="4" xxl="3" class="mb-2">
+                        <label for="" class="form-label">작성일</label>
+                        <b-row class="align-items-center">
+                            <b-col>
                                 <VueDatePicker :enable-time-picker="false" :format="formatDate" v-model="state.form.startDate" />
-                            </div>
+                            </b-col>
                             ~
-                            <div class="col">
+                            <b-col>
                                 <VueDatePicker :enable-time-picker="false" :format="formatDate" v-model="state.form.endDate" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-xl-4 col-xxl-3 mb-2">
+                            </b-col>
+                        </b-row>
+                    </b-col>
+                    <b-col cols="6" xl="4" xxl="3" class="mb-2">
                         <label for="loginId" class="form-label">상호명</label>
                         <b-form-input type="text" id="loginId" v-model="state.form.storeName"></b-form-input>
-                    </div>
-                    <div class="col-6 col-xl-4 col-xxl-3 mb-2">
-                        <label for="loginId" class="form-label">고객명</label>
+                    </b-col>
+                    <b-col cols="6" xl="4" xxl="3" class="mb-2">
+                        <label for="loginId" class="form-label">작성자</label>
                         <b-form-input type="text" id="loginId" v-model="state.form.customerName"></b-form-input>
-                    </div>
-                    <div class="col-6 col-xl-4 col-xxl-3 mb-2">
+                    </b-col>
+                    <b-col cols="6" xl="4" xxl="3" class="mb-2">
                         <label for="loginId" class="form-label">내용</label>
                         <b-form-input type="text" id="loginId" v-model="state.form.comment"></b-form-input>
-                    </div>
-                    <div class="col-6 col-xl-4 col-xxl-3 mb-2">
+                    </b-col>
+                    <b-col cols="6" xl="4" xxl="3" class="mb-2">
                         <label for="provider" class="form-label">사장 답글</label>
                         <b-form-select id="provider" v-model="state.form.ownerComment">
                             <option value="0">미등록</option>
                             <option value="1">등록</option>
                         </b-form-select>
-                    </div>
-                    <div class="col-6 col-xl-4 col-xxl-3 ms-auto mb-2">
+                    </b-col>
+                    <b-col cols="6" xl="4" xxl="3" class="mb-2">
+                        <label for="provider" class="form-label">상태</label>
+                        <b-form-select id="provider" v-model="state.form.isHide">
+                            <option value="0">공개</option>
+                            <option value="1">숨김</option>
+                        </b-form-select>
+                    </b-col>
+                    <b-col cols="6" xl="4" xxl="3" class="ms-auto mb-2">
                         <label class="form-label d-block invisible">버튼</label>
-                        <div class="row">
-                            <div class="col">
+                        <b-row>
+                            <b-col>
                                 <button class="btn btn-secondary w-100" @click="resetForm">초기화</button>
-                            </div>
-                            <div class="col">
+                            </b-col>
+                            <b-col>
                                 <button class="btn btn-primary w-100">검색</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="row align-items-center">
-                    <div class="col-12 col-lg-6">
+                            </b-col>
+                        </b-row>
+                    </b-col>
+                </b-row>
+            </b-col>
+            <b-col cols="12">
+                <b-row class="align-items-center">
+                    <b-col cols="12" lg="6">
                         <DateTable title="review" :data="review" :field="fields" />
-                    </div>
-                    <div class="col-12 col-lg-6">
+                    </b-col>
+                    <b-col cols="12" lg="6">
                         <BoardCard title="review" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </b-col>
+                </b-row>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <style scoped>

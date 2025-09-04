@@ -82,11 +82,11 @@ const currentChartData = computed(() => {
 </script>
 
 <template>
-    <div class="container">
-        <div class="row">
+    <b-container>
+        <b-row>
             <!-- 숫자 통계 -->
-            <div class="stats col-12">
-                <div class="row">
+            <b-col cols="12" class="stats">
+                <b-row>
                     <div class="stats-card-area mb-3">
                         <StatsCard title="이번 달 가입자 수" :count="1000" />
                     </div>
@@ -99,44 +99,44 @@ const currentChartData = computed(() => {
                     <div class="stats-card-area mb-3">
                         <StatsCard title="이번 달 ㅁㄴㅇㄹ" :count="876" />
                     </div>
-                </div>
-            </div>
+                </b-row>
+            </b-col>
 
             <!-- 차트 통계 -->
-            <div class="chart col-12">
-                <div class="row">
-                    <div class="col-12 text-end mb-3">
+            <b-col cols="12" class="chart">
+                <b-row>
+                    <b-col cols="12" class="text-end mb-3">
                         <select class="form-select form-select-sm w-auto d-inline-block" v-model="selectedChartOption">
                             <option v-for="item in chartOptions" :key="item" :value="item">
                                 {{ item }}
                             </option>
                         </select>
-                    </div>
+                    </b-col>
 
-                    <div class="col-12 mb-3">
+                    <b-col cols="12" class="text-end mb-3">
                         <div class="card" style="height: 375px;">
                             <ChartCard :title="selectedChartOption" :chart-data="currentChartData" />
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </b-col>
+                </b-row>
+            </b-col>
 
             <!-- 가게 관리, 고객 문의 -->
-            <div class="board col-12">
-                <div class="row">
+            <b-col cols="12" class="board">
+                <b-row>
                     <!-- 가게 관리 -->
-                    <div class="col-12 col-xl-6 mb-3">
+                    <b-col cols="12" xl="6" class="mb-3">
                         <DashboardCard title="가게 관리" :table="stores" />
-                    </div>
+                    </b-col>
 
                     <!-- 고객 문의 -->
-                    <div class="col-12 col-xl-6">
+                    <b-col cols="12" xl="6" class="mb-3">
                         <DashboardCard title="고객 문의" :table="contacts" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </b-col>
+                </b-row>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <style lang="scss" scoped>

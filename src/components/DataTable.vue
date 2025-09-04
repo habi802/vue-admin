@@ -40,7 +40,7 @@ watch(
 </script>
 
 <template>
-    <b-table :items="props.data" :fields="computedFields" bordered>
+    <b-table :items="props.data" :fields="computedFields" bordered hover>
         <!-- 체크박스 컬럼 헤더 (전체 선택) -->
         <template #head(selected)>
             <input type="checkbox" v-model="allSelected" @change="toggleSelectAll" />

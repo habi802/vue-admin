@@ -15,7 +15,7 @@ const submit = () => {
 
 <template>
     <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="container">
+        <b-container>
             <div class="text-center mb-3">
                 <img class="logo" src="@/assets/logo.png" />
             </div>
@@ -30,7 +30,7 @@ const submit = () => {
                 </div>
                 <button type="submit" class="btn btn-primary">로그인</button>
             </form>
-        </div>
+        </b-container>
     </div>
 </template>
 

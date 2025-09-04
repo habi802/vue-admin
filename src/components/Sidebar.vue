@@ -16,7 +16,7 @@ const route = useRoute();
             <li class="nav-item"><a href="/review" :class="`nav-link ${route.path === '/review' ? 'active' : ''}`">리뷰 관리</a></li>
             <li class="nav-item"><a href="#" class="nav-link">주문 관리</a></li>
             <li class="nav-item"><a href="#" class="nav-link">결제 관리</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">고객 문의</a></li>
+            <li class="nav-item"><a href="contact" :class="`nav-link ${route.path === '/contact' ? 'active' : ''}`">고객 문의</a></li>
         </ul>
     </div>
 </template>

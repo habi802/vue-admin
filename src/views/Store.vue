@@ -77,77 +77,77 @@ const fields = [
 </script>
 
 <template>
-    <div class="container">
+    <b-container>
         <h5>가게 리스트</h5>
-        <div class="row align-items-center">
-            <div class="col-12 col-lg-6 col-xl-4 col-xxl-3 mb-2">
+        <b-row class="align-items-center">
+            <b-col cols="12" lg="6" xl="4" xxl="3" class="mb-2">
                 <label for="" class="form-label">가게 등록일</label>
-                <div class="row align-items-center">
-                    <div class="col">
+                <b-row class="align-items-center">
+                    <b-col>
                         <VueDatePicker :enable-time-picker="false" :format="formatDate" v-model="state.form.StartCreatedAt" />
-                    </div>
+                    </b-col>
                     ~
-                    <div class="col">
+                    <b-col>
                         <VueDatePicker :enable-time-picker="false" :format="formatDate" v-model="state.form.EndCreatedAt" />
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 col-xl-4 col-xxl-3 mb-2">
+                    </b-col>
+                </b-row>
+            </b-col>
+            <b-col cols="12" lg="6" xl="4" xxl="3" class="mb-2">
                 <label for="" class="form-label">개업연월일</label>
-                <div class="row align-items-center">
-                    <div class="col">
+                <b-row class="align-items-center">
+                    <b-col>
                         <VueDatePicker :enable-time-picker="false" :format="formatDate" v-model="state.form.StartOpenDate" />
-                    </div>
+                    </b-col>
                     ~
-                    <div class="col">
+                    <b-col>
                         <VueDatePicker :enable-time-picker="false" :format="formatDate" v-model="state.form.EndOpenDate" />
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-xl-4 col-xxl-3 mb-2">
+                    </b-col>
+                </b-row>
+            </b-col>
+            <b-col cols="6" xl="4" xxl="3" class="mb-2">
                 <label for="name" class="form-label">상호명</label>
                 <b-form-input type="text" id="name" v-model="state.form.name"></b-form-input>
-            </div>
-            <div class="col-6 col-xl-4 col-xxl-3 mb-2">
+            </b-col>
+            <b-col cols="6" xl="4" xxl="3" class="mb-2">
                 <label for="ownerName" class="form-label">대표자명</label>
                 <b-form-input type="text" id="ownerName" v-model="state.form.ownerName"></b-form-input>
-            </div>
-            <div class="col-6 col-xl-4 col-xxl-3 mb-2">
+            </b-col>
+            <b-col cols="6" xl="4" xxl="3" class="mb-2">
                 <label for="businessNumber" class="form-label">사업자 등록번호</label>
                 <b-form-input type="text" id="businessNumber" v-model="state.form.businessNumber"></b-form-input>
-            </div>
-            <div class="col-6 col-xl-4 col-xxl-3 mb-2">
+            </b-col>
+            <b-col cols="6" xl="4" xxl="3" class="mb-2">
                 <label for="address" class="form-label">주소</label>
                 <b-form-input type="text" id="address" v-model="state.form.address"></b-form-input>
-            </div>
-            <div class="col-6 col-xl-4 col-xxl-3 mb-2">
+            </b-col>
+            <b-col cols="6" xl="4" xxl="3" class="mb-2">
                 <label for="tel" class="form-label">전화번호</label>
                 <b-form-input type="text" id="tel" v-model="state.form.tel"></b-form-input>
-            </div>
-            <div class="col-6 col-xl-4 col-xxl-3 mb-2">
+            </b-col>
+            <b-col cols="6" xl="4" xxl="3" class="mb-2">
                 <label for="isActive" class="form-label">상태</label>
                 <b-form-select id="isActive" v-model="state.form.isActive">
                     <option value="0">비활성화</option>
                     <option value="1">활성화</option>
                 </b-form-select>
-            </div>
-            <div class="col-6 col-xl-4 col-xxl-3 ms-auto mb-2">
+            </b-col>
+            <b-col cols="6" xl="4" xxl="3" class="ms-auto mb-2">
                 <label class="form-label d-block invisible">버튼</label>
-                <div class="row">
-                    <div class="col">
+                <b-row>
+                    <b-col>
                         <button class="btn btn-secondary w-100" @click="resetForm">초기화</button>
-                    </div>
-                    <div class="col">
+                    </b-col>
+                    <b-col>
                         <button class="btn btn-primary w-100">검색</button>
-                    </div>
-                </div>
-            </div>
+                    </b-col>
+                </b-row>
+            </b-col>
 
-            <div class="col-12">
+            <b-col cols="12">
                 <DateTable title="store" :data="store" :field="fields" />
-            </div>
-        </div>
-    </div>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <style lang="scss" scoped>

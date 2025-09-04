@@ -6,6 +6,7 @@ import Dashboard from '@/views/Dashboard.vue'
 import User from '@/views/User.vue'
 import Store from '@/views/Store.vue'
 import Review from '@/views/Review.vue'
+import Contact from '@/views/Contact.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,12 @@ const router = createRouter({
       path: "/review",
       name: "review",
       component: Review,
+      meta: { layout: AdminLayout }
+    },
+    {
+      path: "/contact",
+      name: "contact",
+      component: Contact,
       meta: { layout: AdminLayout }
     },
   ],
