@@ -6,12 +6,10 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="card">
-        <div class="card-body">
-            <h6 class="card-title">{{ props.title }}</h6>
-            <h1 class="card-text">{{ props.count !== undefined && props.count !== null ? props.count.toLocaleString() : 0 }}</h1>
-        </div>
-    </div>
+    <b-card>
+        <b-card-title tag="h6">{{ props.title }}</b-card-title>
+        <b-card-text tag="h1">{{ props.count !== undefined && props.count !== null ? props.count.toLocaleString() : 0 }}</b-card-text>
+    </b-card>
 </template>
 
 <style scoped>

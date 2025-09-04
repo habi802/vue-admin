@@ -2,19 +2,19 @@
 import DashboardTable from './DashboardTable.vue';
 
 const props = defineProps({
+    title: String,
     table: Object
 });
 </script>
 
 <template>
-<div class="card">
-        <div class="card-header">
-            가게 관리
-        </div>
-        <div class="card-body">
-            <DashboardTable :table="props.table" />
-        </div>
-    </div>
+    <b-card>
+        <template #header>
+            {{ props.title }}
+        </template>
+
+        <DashboardTable :table="props.table" />
+    </b-card>
 </template>
 
 <style scoped>

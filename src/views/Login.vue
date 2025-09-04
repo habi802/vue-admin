@@ -22,11 +22,11 @@ const submit = () => {
             <form @sumbit.prevent="submit">
                 <div class="mb-3">
                     <label for="admin-login-id" class="form-label">아이디</label>
-                    <input type="text" id="admin-login-id" class="form-control" v-model="state.form.loginId">
+                    <b-form-input type="text" id="admin-login-id" v-model="state.form.loginId"></b-form-input>
                 </div>
                 <div class="mb-3">
                     <label for="admin-login-pw" class="form-label">비밀번호</label>
-                    <input type="password" id="admin-login-pw" class="form-control" v-model="state.form.loginPw">
+                    <b-form-input type="password" id="admin-login-pw" v-model="state.form.loginPw"></b-form-input>
                 </div>
                 <button type="submit" class="btn btn-primary">로그인</button>
             </form>

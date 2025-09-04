@@ -25,6 +25,7 @@ const state = reactive({
     form: { ...defaultForm }
 });
 
+// 검색 초기화
 const resetForm = () => {
     Object.assign(state.form, defaultForm);
 };
@@ -92,39 +93,39 @@ const fields = [
             </div>
             <div class="col-6 col-xl-4 col-xxl-3 mb-2">
                 <label for="loginId" class="form-label">아이디</label>
-                <BFormInput type="text" id="loginId" v-model="state.form.loginId"></BFormInput>
+                <b-form-input type="text" id="loginId" v-model="state.form.loginId"></b-form-input>
             </div>
             <div class="col-6 col-xl-4 col-xxl-3 mb-2">
                 <label for="name" class="form-label">이름</label>
-                <BFormInput type="text" id="name" v-model="state.form.name"></BFormInput>
+                <b-form-input type="text" id="name" v-model="state.form.name"></b-form-input>
             </div>
             <div class="col-6 col-xl-4 col-xxl-3 mb-2">
                 <label for="address" class="form-label">주소</label>
-                <BFormInput type="text" id="address" v-model="state.form.address"></BFormInput>
+                <b-form-input type="text" id="address" v-model="state.form.address"></b-form-input>
             </div>
             <div class="col-6 col-xl-4 col-xxl-3 mb-2">
                 <label for="phone" class="form-label">전화번호</label>
-                <BFormInput type="text" id="phone" v-model="state.form.phone"></BFormInput>
+                <b-form-input type="text" id="phone" v-model="state.form.phone"></b-form-input>
             </div>
             <div class="col-6 col-xl-4 col-xxl-3 mb-2">
                 <label for="email" class="form-label">이메일</label>
-                <BFormInput type="text" id="email" v-model="state.form.email"></BFormInput>
+                <b-form-input type="text" id="email" v-model="state.form.email"></b-form-input>
             </div>
             <div class="col-6 col-xl-4 col-xxl-3 mb-2">
                 <label for="provider" class="form-label">가입 유형</label>
-                <BFormSelect id="provider" v-model="state.form.provider">
+                <b-form-select id="provider" v-model="state.form.provider">
                     <option value="01">일반</option>
                     <option value="02">카카오</option>
                     <option value="03">네이버</option>
-                </BFormSelect>
+                </b-form-select>
             </div>
             <div class="col-6 col-xl-4 col-xxl-3 mb-2">
                 <label for="role" class="form-label">분류</label>
-                <BFormSelect id="role" v-model="state.form.role">
+                <b-form-select id="role" v-model="state.form.role">
                     <option value="01">고객</option>
                     <option value="02">사장</option>
                     <option value="03">배달원</option>
-                </BFormSelect>
+                </b-form-select>
             </div>
             <div class="col-6 col-xl-4 col-xxl-3 ms-auto mb-2">
                 <label class="form-label d-block invisible">버튼</label>

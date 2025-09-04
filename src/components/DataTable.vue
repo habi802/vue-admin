@@ -40,7 +40,7 @@ watch(
 </script>
 
 <template>
-    <BTable :items="props.data" :fields="computedFields">
+    <b-table :items="props.data" :fields="computedFields" bordered>
         <!-- 체크박스 컬럼 헤더 (전체 선택) -->
         <template #head(selected)>
             <input type="checkbox" v-model="allSelected" @change="toggleSelectAll" />
@@ -82,7 +82,7 @@ watch(
             <span v-if="row.item.isHide === 0" class="badge bg-success">공개</span>
             <span v-else-if="row.item.isHide === 1" class="badge bg-dark">숨김</span>
         </template>
-    </BTable>
+    </b-table>
 </template>
 
 <style scoped>
