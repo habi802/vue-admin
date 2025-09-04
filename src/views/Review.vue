@@ -131,11 +131,15 @@ const goToBoardSection = item => {
             </b-col>
             <b-col cols="12">
                 <b-row>
-                    <b-col cols="12" class="text-end mb-2">
-                        <PageSizeSelect />
-                    </b-col>
                     <b-col cols="12" lg="6">
-                        <DateTable title="review" :items="review" :field="fields" @row-selected="goToBoardSection" />
+                        <b-row>
+                            <b-col cols="12" class="text-end mb-2">
+                                <PageSizeSelect />
+                            </b-col>
+                            <b-col cols="12">
+                                <DateTable title="review" :items="review" :field="fields" @row-selected="goToBoardSection" />
+                            </b-col>
+                        </b-row>
                     </b-col>
                     <b-col ref="boardSection" cols="12" lg="6">
                         <BoardCard title="review" />
