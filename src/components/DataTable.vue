@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, reactive } from 'vue';
 
 const props = defineProps({
     title: String,
@@ -7,38 +7,25 @@ const props = defineProps({
     field: Array
 });
 
-// props.data → 로컬 복사본 만들기 (체크박스 상태 추가)
-const localItems = ref(props.items.map(item => ({ ...item, _checked: false })));
-
 // 체크박스 컬럼 정의
-const checkboxField = { key: 'selected', label: '', sortable: false }
+const checkboxField = { key: 'selected', label: '', sortable: false };
 
-// title 에 따라 최종 fields 결정
+// title에 따라 체크박스 컬럼이 추가되는지 결정
 const computedFields = computed(() => {
     if (props.title !== 'user') {
-        return [checkboxField, ...props.field]
+        return [checkboxField, ...props.field];
     }
-    return props.field
+    return props.field;
 });
 
-// 전체 선택 여부
-const allSelected = ref(false)
-
-// 전체 선택/해제
-function toggleSelectAll() {
+// 체크박스 전체 선택/해제
+const allSelected = ref(false);
+const toggleSelectAll = () => {
     allSelected.value = !allSelected.value
-    props.data.forEach(item => (item._checked = allSelected.value))
-}
+    props.items.forEach(item => (item._checked = allSelected.value))
+};
 
-// 개별 선택 변화 감지 → 헤더 체크박스 상태 갱신
-watch(
-    () => localItems.value.map(item => item._checked),
-    (checkedValues) => {
-        allSelected.value = checkedValues.every(v => v === true)
-    }
-);
-
-// 행 클릭 시 item의 id를 부모 컴포넌트로 전달
+// 행 클릭 시 선택한 행 item의 id를 부모 컴포넌트로 전달
 const emit = defineEmits(['row-selected']);
 const rowClicked = item => {
     console.log(item);
@@ -50,7 +37,7 @@ const rowClicked = item => {
     <b-table :items="props.items" :fields="computedFields" @row-clicked="rowClicked" bordered hover>
         <!-- 체크박스 컬럼 헤더 (전체 선택) -->
         <template #head(selected)>
-            <input type="checkbox" v-model="allSelected" @change="toggleSelectAll" />
+            <input type="checkbox" :checked="allSelected" @change="toggleSelectAll" />
         </template>
 
         <!-- 체크박스 셀 -->

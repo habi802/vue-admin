@@ -128,7 +128,7 @@ const fields = [
                     <option value="03">배달원</option>
                 </b-form-select>
             </b-col>
-            <b-col cols="6" xl="4" xxl="3" class="ms-auto mb-3">
+            <b-col cols="6" xl="4" xxl="3" class="ms-auto mb-2">
                 <label class="form-label d-block invisible">버튼</label>
                 <b-row>
                     <b-col>
