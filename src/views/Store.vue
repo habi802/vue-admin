@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from 'vue';
 import VueDatePicker from '@vuepic/vue-datepicker';
+import PageSizeSelect from '@/components/PageSizeSelect.vue';
 import DateTable from '@/components/DataTable.vue';
 
 const formatDate = (date) => date.toLocaleDateString();
@@ -78,7 +79,7 @@ const fields = [
 
 <template>
     <b-container>
-        <h5>가게 리스트</h5>
+        <h5 class="mb-3">가게 리스트</h5>
         <b-row class="align-items-center">
             <b-col cols="12" lg="6" xl="4" xxl="3" class="mb-2">
                 <label for="" class="form-label">가게 등록일</label>
@@ -131,7 +132,7 @@ const fields = [
                     <option value="1">활성화</option>
                 </b-form-select>
             </b-col>
-            <b-col cols="6" xl="4" xxl="3" class="ms-auto mb-2">
+            <b-col cols="6" xl="4" xxl="3" class="ms-auto mb-3">
                 <label class="form-label d-block invisible">버튼</label>
                 <b-row>
                     <b-col>
@@ -141,6 +142,10 @@ const fields = [
                         <button class="btn btn-primary w-100">검색</button>
                     </b-col>
                 </b-row>
+            </b-col>
+
+            <b-col cols="12" class="text-end mb-2">
+                <PageSizeSelect />
             </b-col>
 
             <b-col cols="12">

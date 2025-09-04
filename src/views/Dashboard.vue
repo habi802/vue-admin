@@ -83,6 +83,7 @@ const currentChartData = computed(() => {
 
 <template>
     <b-container>
+        <h5 class="mb-3">리뷰 리스트</h5>
         <b-row>
             <!-- 숫자 통계 -->
             <b-col cols="12" class="stats">

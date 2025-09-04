@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from 'vue';
 import VueDatePicker from '@vuepic/vue-datepicker';
+import PageSizeSelect from '@/components/PageSizeSelect.vue';
 import DateTable from '@/components/DataTable.vue';
 import BoardCard from '@/components/BoardCard.vue';
 
@@ -68,7 +69,7 @@ const fields = [
 
 <template>
     <b-container>
-        <h5>리뷰 리스트</h5>
+        <h5 class="mb-3">리뷰 리스트</h5>
         <b-row class="align-items-center">
             <b-col cols="12">
                 <b-row class="align-items-center">
@@ -110,7 +111,7 @@ const fields = [
                             <option value="1">숨김</option>
                         </b-form-select>
                     </b-col>
-                    <b-col cols="6" xl="4" xxl="3" class="ms-auto mb-2">
+                    <b-col cols="6" xl="4" xxl="3" class="ms-auto mb-3">
                         <label class="form-label d-block invisible">버튼</label>
                         <b-row>
                             <b-col>
@@ -125,6 +126,9 @@ const fields = [
             </b-col>
             <b-col cols="12">
                 <b-row>
+                    <b-col cols="12" class="text-end mb-2">
+                        <PageSizeSelect />
+                    </b-col>
                     <b-col cols="12" lg="6">
                         <DateTable title="review" :data="review" :field="fields" />
                     </b-col>
