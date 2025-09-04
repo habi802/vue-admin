@@ -149,7 +149,7 @@ const fields = [
             </b-col>
 
             <b-col cols="12">
-                <DateTable title="store" :data="store" :field="fields" />
+                <DateTable title="store" :items="store" :field="fields" />
             </b-col>
         </b-row>
     </b-container>

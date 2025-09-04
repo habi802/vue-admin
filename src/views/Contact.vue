@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import VueDatePicker from '@vuepic/vue-datepicker';
 import PageSizeSelect from '@/components/PageSizeSelect.vue';
 import DateTable from '@/components/DataTable.vue';
@@ -60,6 +60,11 @@ const fields = [
     { key: 'createdAt', label: '작성일' },
     { key: 'managerComment', label: '관리자 답변' },
 ];
+
+const boardSection = ref(null);
+const goToBoardSection = item => {
+    boardSection.value?.$el.scrollIntoView({ behavior: "smooth" });
+};
 </script>
 
 <template>
@@ -118,9 +123,9 @@ const fields = [
                         <PageSizeSelect />
                     </b-col>
                     <b-col cols="12" lg="6">
-                        <DateTable title="contact" :data="contact" :field="fields" />
+                        <DateTable title="contact" :items="contact" :field="fields" @row-selected="goToBoardSection" />
                     </b-col>
-                    <b-col cols="12" lg="6">
+                    <b-col ref="boardSection" cols="12" lg="6">
                         <BoardCard title="contact" />
                     </b-col>
                 </b-row>

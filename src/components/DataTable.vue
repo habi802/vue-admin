@@ -3,12 +3,12 @@ import { ref, computed, watch } from 'vue';
 
 const props = defineProps({
     title: String,
-    data: Array,
+    items: Array,
     field: Array
 });
 
 // props.data → 로컬 복사본 만들기 (체크박스 상태 추가)
-const localItems = ref(props.data.map(item => ({ ...item, _checked: false })));
+const localItems = ref(props.items.map(item => ({ ...item, _checked: false })));
 
 // 체크박스 컬럼 정의
 const checkboxField = { key: 'selected', label: '', sortable: false }
@@ -36,11 +36,18 @@ watch(
     (checkedValues) => {
         allSelected.value = checkedValues.every(v => v === true)
     }
-)
+);
+
+// 행 클릭 시 item의 id를 부모 컴포넌트로 전달
+const emit = defineEmits(['row-selected']);
+const rowClicked = item => {
+    console.log(item);
+    emit('row-selected', item);
+};
 </script>
 
 <template>
-    <b-table :items="props.data" :fields="computedFields" bordered hover>
+    <b-table :items="props.items" :fields="computedFields" @row-clicked="rowClicked" bordered hover>
         <!-- 체크박스 컬럼 헤더 (전체 선택) -->
         <template #head(selected)>
             <input type="checkbox" v-model="allSelected" @change="toggleSelectAll" />
